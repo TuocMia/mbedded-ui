@@ -1,0 +1,26 @@
+SET(SOURCES ui_comp_config.c
+    ui_comp.c
+    ui_home.c
+    ui_info.c
+    ui_menu.c
+    ui_rgb1.c
+    ui_rgb2.c
+    ui_Light1.c
+    ui_Light2.c
+    ui_Light3.c
+    ui_Light4.c
+    ui.c
+    ui_comp_hook.c
+    ui_helpers.c
+    ui_events.cpp
+    ui_img_1205843_png.c
+    ui_img_home_png.c
+    ui_img_clouds_png.c
+    ui_img_moon_png.c
+    ui_img_2088635469.c
+    fonts/ui_font_bonus.c
+    fonts/ui_font_digi40.c
+    fonts/ui_font_digital.c
+    fonts/ui_font_digital60.c)
+
+add_library(ui ${SOURCES})
