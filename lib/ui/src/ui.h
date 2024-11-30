@@ -65,27 +65,23 @@ void ui_menu_screen_init(void);
 void ui_event_menu(lv_event_t * e);
 extern lv_obj_t * ui_menu;
 extern lv_obj_t * ui_device1;
-void ui_event_device1_ImgButton1(lv_event_t * e);
 void ui_event_light1_config(lv_event_t * e);
 extern lv_obj_t * ui_light1;
-void ui_event_light1_light1_ImgButton2(lv_event_t * e);
+extern lv_obj_t * ui_Image4;
 extern lv_obj_t * ui_device2;
-void ui_event_device2_device2_ImgButton3(lv_event_t * e);
 void ui_event_light2_config(lv_event_t * e);
 extern lv_obj_t * ui_light2;
-void ui_event_light2_light2_ImgButton4(lv_event_t * e);
+extern lv_obj_t * ui_Image3;
 void ui_event_rgb3_config(lv_event_t * e);
 extern lv_obj_t * ui_rgb3;
-void ui_event_rgb3_rgb3_ImgButton5(lv_event_t * e);
 void ui_event_light3_config(lv_event_t * e);
 extern lv_obj_t * ui_light3;
-void ui_event_light3_light3_ImgButton6(lv_event_t * e);
+extern lv_obj_t * ui_Image2;
 void ui_event_rgb4_config(lv_event_t * e);
 extern lv_obj_t * ui_rgb4;
-void ui_event_rgb4_rgb4_ImgButton7(lv_event_t * e);
 void ui_event_light4_config(lv_event_t * e);
 extern lv_obj_t * ui_light4;
-void ui_event_light4_light4_ImgButton8(lv_event_t * e);
+extern lv_obj_t * ui_Image1;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_rgb1
@@ -118,58 +114,78 @@ extern lv_obj_t * ui_rgbbrightness2;
 
 // SCREEN: ui_Light1
 void ui_Light1_screen_init(void);
-void ui_event_Light1(lv_event_t * e);
 extern lv_obj_t * ui_Light1;
-extern lv_obj_t * ui_light11;
+void ui_event_chinhdosang(lv_event_t * e);
+extern lv_obj_t * ui_chinhdosang;
+extern lv_obj_t * ui_dosang;
+extern lv_obj_t * ui_Label5;
+void ui_event_before1(lv_event_t * e);
+extern lv_obj_t * ui_before1;
+void ui_event_menu1(lv_event_t * e);
+extern lv_obj_t * ui_menu1;
+void ui_event_next1(lv_event_t * e);
+extern lv_obj_t * ui_next1;
 extern lv_obj_t * ui_mau1;
-void ui_event_mau11(lv_event_t * e);
-extern lv_obj_t * ui_mau11;
-extern lv_obj_t * ui_light12;
-extern lv_obj_t * ui_dosang1;
-void ui_event_dosang11(lv_event_t * e);
-extern lv_obj_t * ui_dosang11;
+extern lv_obj_t * ui_mau2;
+extern lv_obj_t * ui_mau3;
+extern lv_obj_t * ui_LIGHT1;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_Light2
 void ui_Light2_screen_init(void);
-void ui_event_Light2(lv_event_t * e);
 extern lv_obj_t * ui_Light2;
-extern lv_obj_t * ui_light21;
-extern lv_obj_t * ui_mau2;
-void ui_event_mau21(lv_event_t * e);
-extern lv_obj_t * ui_mau21;
-extern lv_obj_t * ui_light22;
-extern lv_obj_t * ui_dosang2;
-void ui_event_dosang21(lv_event_t * e);
-extern lv_obj_t * ui_dosang21;
+void ui_event_chinhdosang1(lv_event_t * e);
+extern lv_obj_t * ui_chinhdosang1;
+extern lv_obj_t * ui_dosang1;
+extern lv_obj_t * ui_Label6;
+void ui_event_before2(lv_event_t * e);
+extern lv_obj_t * ui_before2;
+void ui_event_menu2(lv_event_t * e);
+extern lv_obj_t * ui_menu2;
+void ui_event_next2(lv_event_t * e);
+extern lv_obj_t * ui_next2;
+extern lv_obj_t * ui_mau4;
+extern lv_obj_t * ui_mau5;
+extern lv_obj_t * ui_mau6;
+extern lv_obj_t * ui_LIGHT2;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_Light3
 void ui_Light3_screen_init(void);
-void ui_event_Light3(lv_event_t * e);
 extern lv_obj_t * ui_Light3;
-extern lv_obj_t * ui_light31;
-extern lv_obj_t * ui_mau3;
-void ui_event_mau31(lv_event_t * e);
-extern lv_obj_t * ui_mau31;
-extern lv_obj_t * ui_light32;
-extern lv_obj_t * ui_dosang3;
-void ui_event_dosang31(lv_event_t * e);
-extern lv_obj_t * ui_dosang31;
+void ui_event_chinhdosang2(lv_event_t * e);
+extern lv_obj_t * ui_chinhdosang2;
+extern lv_obj_t * ui_dosang2;
+extern lv_obj_t * ui_Label7;
+void ui_event_before3(lv_event_t * e);
+extern lv_obj_t * ui_before3;
+void ui_event_menu3(lv_event_t * e);
+extern lv_obj_t * ui_menu3;
+void ui_event_next3(lv_event_t * e);
+extern lv_obj_t * ui_next3;
+extern lv_obj_t * ui_mau7;
+extern lv_obj_t * ui_mau8;
+extern lv_obj_t * ui_mau9;
+extern lv_obj_t * ui_LIGHT3;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_Light4
 void ui_Light4_screen_init(void);
-void ui_event_Light4(lv_event_t * e);
 extern lv_obj_t * ui_Light4;
-extern lv_obj_t * ui_light41;
-extern lv_obj_t * ui_mau4;
-void ui_event_mau41(lv_event_t * e);
-extern lv_obj_t * ui_mau41;
-extern lv_obj_t * ui_light42;
-extern lv_obj_t * ui_dosang4;
-void ui_event_dosang41(lv_event_t * e);
-extern lv_obj_t * ui_dosang41;
+void ui_event_chinhdosang3(lv_event_t * e);
+extern lv_obj_t * ui_chinhdosang3;
+extern lv_obj_t * ui_dosang3;
+extern lv_obj_t * ui_Label8;
+void ui_event_before4(lv_event_t * e);
+extern lv_obj_t * ui_before4;
+void ui_event_menu4(lv_event_t * e);
+extern lv_obj_t * ui_menu4;
+void ui_event_next4(lv_event_t * e);
+extern lv_obj_t * ui_next4;
+extern lv_obj_t * ui_mau10;
+extern lv_obj_t * ui_mau11;
+extern lv_obj_t * ui_mau12;
+extern lv_obj_t * ui_LIGHT4;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -177,11 +193,15 @@ extern lv_obj_t * ui_dosang41;
 extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
-LV_IMG_DECLARE(ui_img_1205843_png);    // assets/1205843.png
+LV_IMG_DECLARE(ui_img_1590078891);    // assets/GettyImages-9261821821-5c69c1b7c9e77c0001675a49.png
 LV_IMG_DECLARE(ui_img_home_png);    // assets/home.png
 LV_IMG_DECLARE(ui_img_clouds_png);    // assets/clouds.png
 LV_IMG_DECLARE(ui_img_moon_png);    // assets/moon.png
-LV_IMG_DECLARE(ui_img_2088635469);    // assets/power-switch.png
+LV_IMG_DECLARE(ui_img_719384);    // assets/power-button (2).png
+LV_IMG_DECLARE(ui_img_276569025);    // assets/light-bulb (1).png
+LV_IMG_DECLARE(ui_img_2001105536);    // assets/back (1).png
+LV_IMG_DECLARE(ui_img_1987010666);    // assets/more (1).png
+LV_IMG_DECLARE(ui_img_115668498);    // assets/next (1).png
 
 // FONTS
 LV_FONT_DECLARE(ui_font_bonus);

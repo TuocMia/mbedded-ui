@@ -13,11 +13,15 @@ SET(SOURCES ui_comp_config.c
     ui_comp_hook.c
     ui_helpers.c
     ui_events.cpp
-    ui_img_1205843_png.c
+    ui_img_1590078891.c
     ui_img_home_png.c
     ui_img_clouds_png.c
     ui_img_moon_png.c
-    ui_img_2088635469.c
+    ui_img_719384.c
+    ui_img_276569025.c
+    ui_img_2001105536.c
+    ui_img_1987010666.c
+    ui_img_115668498.c
     fonts/ui_font_bonus.c
     fonts/ui_font_digi40.c
     fonts/ui_font_digital.c
