@@ -15,7 +15,7 @@ extern "C" {
 // COMPONENT config
 #define UI_COMP_CONFIG_CONFIG 0
 #define UI_COMP_CONFIG_IMGBUTTON1 1
-#define UI_COMP_CONFIG_LABEL1 2
+#define UI_COMP_CONFIG_OBJECT 2
 #define _UI_COMP_CONFIG_NUM 3
 lv_obj_t * ui_config_create(lv_obj_t * comp_parent);
 
