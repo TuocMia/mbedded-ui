@@ -259,7 +259,7 @@ void ui_event_device1_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffDev1(e);
     }
 }
@@ -277,7 +277,7 @@ void ui_event_light1_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffLight1(e);
     }
 }
@@ -286,7 +286,7 @@ void ui_event_device2_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffDev2(e);
     }
 }
@@ -304,7 +304,7 @@ void ui_event_light2_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffLight2(e);
     }
 }
@@ -322,7 +322,7 @@ void ui_event_rgb3_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffrgb1(e);
     }
 }
@@ -340,7 +340,7 @@ void ui_event_light3_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffLight3(e);
     }
 }
@@ -358,7 +358,7 @@ void ui_event_rgb4_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffrgb2(e);
     }
 }
@@ -376,7 +376,7 @@ void ui_event_light4_ImgButton1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_LONG_PRESSED) {
+    if(event_code == LV_EVENT_CLICKED) {
         OnOffLight4(e);
     }
 }

@@ -46,16 +46,17 @@ Serial.println("\nConnected to WiFi.");
 // Reconnect to MQTT if disconnected
 void reconnectMQTT() {
 while (!client.connected()) {
-Serial.print("Connecting to MQTT...");
+    Serial.print("Connecting to MQTT...");
 if (client.connect("ArduinoClient")) {
-Serial.println("connected");
-client.subscribe(Mqtt_Topic); // Subscribe to topic
-} else {
-Serial.print("failed, rc=");
-Serial.print(client.state());
-delay(2000);
+    Serial.println("connected");
+    client.subscribe(Mqtt_Topic); // Subscribe to topic
 }
-}
+else {
+    Serial.print("failed, rc=");
+    Serial.print(client.state());
+    delay(2000);
+        }
+    }
 }
 
 void mqtt_init() {
@@ -63,19 +64,23 @@ void mqtt_init() {
     client.setServer(Mqtt_Server, Mqtt_Port);
     client.setCallback(callback);
 }
+void mqtt_loop() {
+    if (!client.connected()) {
+        reconnectMQTT();
+    }
+    client.loop();
+}
 
 void publishMessage(String message) {
-if (!client.connected()) {
-reconnectMQTT();
-}
-client.loop();
-// Publish a test message every 5 seconds
-static unsigned long lastMsgTime = 0;
-unsigned long now = millis();
-if (now - lastMsgTime > 5000) {
-lastMsgTime = now;
 Serial.print("Publishing message: ");
 Serial.println(message);
 client.publish(Mqtt_Topic, message.c_str());
 }
+
+void sendJson() {
+    StaticJsonDocument<200> message;
+    message["Device1"] = "ON";
+    char Msgbuffer[100];
+    serializeJson(message, Msgbuffer);
+    client.publish(Mqtt_Topic, Msgbuffer);
 }
