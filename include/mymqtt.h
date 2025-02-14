@@ -8,7 +8,6 @@
 
 void mqtt_init();
 void mqtt_loop();
-void publishMessage(String message);
-void sendJson();
+void sendJson(String state, String name);
 
 #endif

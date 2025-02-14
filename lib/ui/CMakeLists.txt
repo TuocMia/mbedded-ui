@@ -1,26 +1,18 @@
 SET(SOURCES ui_comp_config.c
     ui_comp.c
-    ui_info.c
-    ui_menu.c
-    ui_rgb1.c
-    ui_rgb2.c
-    ui_Light1.c
-    ui_Light2.c
-    ui_Light3.c
-    ui_Light4.c
+    ui_Info_Screen.c
+    ui_Menu_Screen.c
+    ui_RGB1_Screen.c
+    ui_RGB2_Screen.c
+    ui_Light1_Screen.c
+    ui_Light2_Screen.c
+    ui_Light3_Screen.c
+    ui_Light4_Screen.c
     ui.c
     ui_comp_hook.c
     ui_helpers.c
-    ui_events.c
-    ui_img_sun_png.c
     ui_img_1350069607.c
     ui_img_wind_png.c
-    ui_img_1816888194.c
-    ui_img_cloudnsun_png.c
-    ui_img_suong_png.c
-    ui_img_storm_png.c
-    ui_img_cloud_png.c
-    ui_img_rain_png.c
     ui_img_719384.c
     ui_img_fan_png.c
     ui_img_light_png.c
