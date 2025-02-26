@@ -1,5 +1,6 @@
 #include "header.h"
 
+<<<<<<< HEAD
 const char* ssid = "Rang Dong Lab_2G";
 const char* password = "ktdt123456";
 
@@ -10,6 +11,8 @@ const char* Mqtt_Topic = "test/arduino";
 
 bool check = false;
 
+=======
+>>>>>>> a267db5 (1.0.0)
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -22,22 +25,12 @@ for (int i = 0; i < length; i++) {
 Serial.print((char)payload[i]);
 }
 Serial.println();
-
-if (String(topic) == "test/arduino") {
-        String message = String((char*)payload).substring(0, length);
-        if (message == "ON") {
-            Serial.println("Light ON");
-        } 
-        else if (message == "OFF") {
-            Serial.println("Light OFF");
-        }
-    }
 }
 
 // Connect to WiFi
 void setupWiFi() {
 Serial.print("Connecting to WiFi...");
-WiFi.begin(ssid, password);
+WiFi.begin(WIFI_SSID, WIFI_Password);
 while (WiFi.status() != WL_CONNECTED) {
 delay(500);
 Serial.print(".");
@@ -53,7 +46,7 @@ String clientId = "ESP32Client";
     clientId += String(random(0xffff), HEX);
 if (client.connect(clientId.c_str())) {
     Serial.println("connected");
-    client.subscribe(Mqtt_Topic); // Subscribe to topic
+    client.subscribe(MQTT_Topic); // Subscribe to topic
 }
 else {
     Serial.print("failed, rc=");
@@ -66,9 +59,10 @@ else {
 //ket noi voi mqtt
 void mqtt_init() {
     setupWiFi();
-    client.setServer(Mqtt_Server, Mqtt_Port);
+    client.setServer(MQTT_Server, MQTT_Port);
     client.setCallback(callback);
 }
+
 void mqtt_loop() {
     if (!client.connected()) {
         reconnectMQTT();
@@ -76,12 +70,22 @@ void mqtt_loop() {
     client.loop();
 }
 
+<<<<<<< HEAD
 void PublishJson(String state, String name) {
     JsonDocument message;
     message[name] = state;
     char Msgbuffer[100];
     serializeJson(message, Msgbuffer);
     client.publish(Mqtt_Topic, Msgbuffer);
+=======
+void sendJson(String addr, float range) {
+    JsonDocument msg;
+    msg["ID"] = addr;
+    msg["Range"] = range;
+    char MsgBuffer[100];
+    serializeJson(msg, MsgBuffer);
+    client.publish(MQTT_Topic, MsgBuffer);
+>>>>>>> a267db5 (1.0.0)
 }
 
 void OnOffDev1(lv_event_t * e) {

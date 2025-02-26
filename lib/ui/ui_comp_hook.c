@@ -8,3 +8,7 @@
 void ui_comp_config_create_hook(lv_obj_t * comp)
 {
 }
+
+void ui_comp_box_create_hook(lv_obj_t * comp)
+{
+}

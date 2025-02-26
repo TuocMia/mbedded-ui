@@ -27,6 +27,7 @@ extern "C" {
 #include "ui_comp_hook.h"
 #include "ui_events.h"
 
+<<<<<<< HEAD
 // SCREEN: ui_Info_Screen
 void ui_Info_Screen_screen_init(void);
 void ui_event_Info_Screen(lv_event_t * e);
@@ -201,6 +202,48 @@ extern lv_obj_t * ui_Light4_Color1;
 extern lv_obj_t * ui_Light4_Color2;
 extern lv_obj_t * ui_Light4_Color3;
 extern lv_obj_t * ui_Light4_Screen_Label;
+=======
+void FadeOff_Animation(lv_obj_t * TargetObject, int delay);
+void FadeOn_Animation(lv_obj_t * TargetObject, int delay);
+
+// SCREEN: ui_Screen1
+void ui_Screen1_screen_init(void);
+extern lv_obj_t * ui_Screen1;
+extern lv_obj_t * ui_MaiTruongToiYeu;
+extern lv_obj_t * ui_PTIT;
+extern lv_obj_t * ui_menu;
+extern lv_obj_t * ui_Humid_Temp;
+extern lv_obj_t * ui_Time_Label;
+extern lv_obj_t * ui_Humid_Container;
+extern lv_obj_t * ui_Humid_Label;
+extern lv_obj_t * ui_Humid_Image;
+extern lv_obj_t * ui_Temp_Container;
+extern lv_obj_t * ui_Symbol;
+extern lv_obj_t * ui_Temp_Label;
+extern lv_obj_t * ui_Temp_Image;
+extern lv_obj_t * ui_Bar1;
+extern lv_obj_t * ui_Light_Panel1;
+void ui_event_OnOff_Button1(lv_event_t * e);
+extern lv_obj_t * ui_OnOff_Button1;
+extern lv_obj_t * ui_Light_Label1;
+extern lv_obj_t * ui_Light_OFF_Image1;
+extern lv_obj_t * ui_Light_ON_Image1;
+extern lv_obj_t * ui_Light_Sensor;
+extern lv_obj_t * ui_Lux_Label;
+extern lv_obj_t * ui_Lux_Image;
+extern lv_obj_t * ui_Light_Panel2;
+void ui_event_OnOff_Button2(lv_event_t * e);
+extern lv_obj_t * ui_OnOff_Button2;
+extern lv_obj_t * ui_Light_Label2;
+extern lv_obj_t * ui_Light_OFF_Image2;
+extern lv_obj_t * ui_Light_ON_Image2;
+extern lv_obj_t * ui_Light_Panel3;
+void ui_event_OnOff_Button3(lv_event_t * e);
+extern lv_obj_t * ui_OnOff_Button3;
+extern lv_obj_t * ui_Light_Label3;
+extern lv_obj_t * ui_Light_OFF_Image3;
+extern lv_obj_t * ui_Light_ON_Image3;
+>>>>>>> a267db5 (1.0.0)
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -208,15 +251,26 @@ extern lv_obj_t * ui_Light4_Screen_Label;
 extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
+<<<<<<< HEAD
 LV_IMG_DECLARE(ui_img_1350069607);    // assets/humidity (2).png
 LV_IMG_DECLARE(ui_img_wind_png);    // assets/wind.png
 LV_IMG_DECLARE(ui_img_719384);    // assets/power-button (2).png
 LV_IMG_DECLARE(ui_img_fan_png);    // assets/fan.png
+=======
+LV_IMG_DECLARE(ui_img_background_png);    // assets/background.png
+LV_IMG_DECLARE(ui_img_763671598);    // assets/logo-ptit-1 (1).png
+LV_IMG_DECLARE(ui_img_doam_png);    // assets/doam.png
+LV_IMG_DECLARE(ui_img_nhietdo_png);    // assets/nhietdo.png
+LV_IMG_DECLARE(ui_img_1305810737);    // assets/power-button (1) (1).png
+LV_IMG_DECLARE(ui_img_1385634997);    // assets/light-off.png
+>>>>>>> a267db5 (1.0.0)
 LV_IMG_DECLARE(ui_img_light_png);    // assets/light.png
-LV_IMG_DECLARE(ui_img_color_png);    // assets/color.png
-LV_IMG_DECLARE(ui_img_2001105536);    // assets/back (1).png
-LV_IMG_DECLARE(ui_img_1987010666);    // assets/more (1).png
-LV_IMG_DECLARE(ui_img_115668498);    // assets/next (1).png
+LV_IMG_DECLARE(ui_img_1836600088);    // assets/brightness (1).png
+
+// FONTS
+LV_FONT_DECLARE(ui_font_dmsans32);
+LV_FONT_DECLARE(ui_font_dmsans40);
+LV_FONT_DECLARE(ui_font_time);
 
 // UI INIT
 void ui_init(void);

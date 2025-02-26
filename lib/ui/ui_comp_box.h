@@ -3,8 +3,8 @@
 // LVGL version: 8.3.11
 // Project name: SquareLine_Project
 
-#ifndef _UI_COMP_CONFIG_H
-#define _UI_COMP_CONFIG_H
+#ifndef _UI_COMP_BOX_H
+#define _UI_COMP_BOX_H
 
 #include "ui.h"
 
@@ -12,12 +12,13 @@
 extern "C" {
 #endif
 
-// COMPONENT config
-#define UI_COMP_CONFIG_CONFIG 0
-#define UI_COMP_CONFIG_IMGBUTTON1 1
-#define UI_COMP_CONFIG_OBJECT 2
-#define _UI_COMP_CONFIG_NUM 3
-lv_obj_t * ui_config_create(lv_obj_t * comp_parent);
+// COMPONENT box
+#define UI_COMP_BOX_BOX 0
+#define UI_COMP_BOX_IMGBUTTON1 1
+#define UI_COMP_BOX_OBJECT 2
+#define UI_COMP_BOX_IMAGE2 3
+#define _UI_COMP_BOX_NUM 4
+lv_obj_t * ui_box_create(lv_obj_t * comp_parent);
 
 #ifdef __cplusplus
 } /*extern "C"*/

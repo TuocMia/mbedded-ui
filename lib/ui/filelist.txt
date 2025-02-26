@@ -1,5 +1,6 @@
-ui_comp_config.c
+ui_comp_box.c
 ui_comp.c
+<<<<<<< HEAD
 ui_Info_Screen.c
 ui_Menu_Screen.c
 ui_RGB1_Screen.c
@@ -15,8 +16,20 @@ ui_img_1350069607.c
 ui_img_wind_png.c
 ui_img_719384.c
 ui_img_fan_png.c
+=======
+ui_Screen1.c
+ui.c
+ui_comp_hook.c
+ui_helpers.c
+ui_img_background_png.c
+ui_img_763671598.c
+ui_img_doam_png.c
+ui_img_nhietdo_png.c
+ui_img_1305810737.c
+ui_img_1385634997.c
+>>>>>>> a267db5 (1.0.0)
 ui_img_light_png.c
-ui_img_color_png.c
-ui_img_2001105536.c
-ui_img_1987010666.c
-ui_img_115668498.c
+ui_img_1836600088.c
+fonts/ui_font_dmsans32.c
+fonts/ui_font_dmsans40.c
+fonts/ui_font_time.c
