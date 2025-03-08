@@ -16,10 +16,6 @@
 
 void mqtt_init();
 void mqtt_loop();
-<<<<<<< HEAD
 void sendJson(String state, String name);
-=======
-void sendJson(String addr, float range);
->>>>>>> a267db5 (1.0.0)
 
 #endif
