@@ -27,182 +27,6 @@ extern "C" {
 #include "ui_comp_hook.h"
 #include "ui_events.h"
 
-<<<<<<< HEAD
-// SCREEN: ui_Info_Screen
-void ui_Info_Screen_screen_init(void);
-void ui_event_Info_Screen(lv_event_t * e);
-extern lv_obj_t * ui_Info_Screen;
-extern lv_obj_t * ui_weather;
-extern lv_obj_t * ui_Today;
-extern lv_obj_t * ui_TempToday;
-extern lv_obj_t * ui_HumidBox;
-extern lv_obj_t * ui_HumidIcon;
-extern lv_obj_t * ui_HumidText;
-extern lv_obj_t * ui_AQI;
-extern lv_obj_t * ui_aqi;
-extern lv_obj_t * ui_AQItext;
-extern lv_obj_t * ui_Panel5;
-extern lv_obj_t * ui_ddmmyy;
-extern lv_obj_t * ui_Time;
-extern lv_obj_t * ui_tomorrow1;
-extern lv_obj_t * ui_tomorrow2;
-extern lv_obj_t * ui_tomorrow3;
-extern lv_obj_t * ui_tomorrow4;
-extern lv_obj_t * ui_tomorrow5;
-extern lv_obj_t * ui_tomorrow6;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_Menu_Screen
-void ui_Menu_Screen_screen_init(void);
-void ui_event_Menu_Screen(lv_event_t * e);
-extern lv_obj_t * ui_Menu_Screen;
-extern lv_obj_t * ui_Device1_Panel;
-void ui_event_Device1_Panel_Device1_Panel_Bat_Tat_Device1(lv_event_t * e);
-extern lv_obj_t * ui_fan_image1;
-void ui_event_Light1_Panel_config(lv_event_t * e);
-extern lv_obj_t * ui_Light1_Panel;
-void ui_event_Light1_Panel_Light1_Panel_Bat_Tat_Light1(lv_event_t * e);
-extern lv_obj_t * ui_light_image1;
-extern lv_obj_t * ui_Device2_Panel;
-void ui_event_Device2_Panel_Device2_Panel_Bat_Tat_Device2(lv_event_t * e);
-extern lv_obj_t * ui_fan_image2;
-void ui_event_Light2_Panel_config(lv_event_t * e);
-extern lv_obj_t * ui_Light2_Panel;
-void ui_event_Light2_Panel_Light2_Panel_Bat_Tat_Light2(lv_event_t * e);
-extern lv_obj_t * ui_light_image2;
-void ui_event_RGB1_Panel_config(lv_event_t * e);
-extern lv_obj_t * ui_RGB1_Panel;
-void ui_event_RGB1_Panel_RGB1_Panel_Bat_Tat_RGB1(lv_event_t * e);
-extern lv_obj_t * ui_rgb_image1;
-void ui_event_Light3_Panel_config(lv_event_t * e);
-extern lv_obj_t * ui_Light3_Panel;
-void ui_event_Light3_Panel_Light3_Panel_Bat_Tat_Light3(lv_event_t * e);
-extern lv_obj_t * ui_light_image3;
-void ui_event_Rgb2_Panel_config(lv_event_t * e);
-extern lv_obj_t * ui_Rgb2_Panel;
-void ui_event_Rgb2_Panel_Rgb2_Panel_Bat_Tat_RGB2(lv_event_t * e);
-extern lv_obj_t * ui_rgb_image2;
-void ui_event_Light_4_Panel_config(lv_event_t * e);
-extern lv_obj_t * ui_Light_4_Panel;
-void ui_event_Light_4_Panel_Light_4_Panel_Bat_Tat_Light4(lv_event_t * e);
-extern lv_obj_t * ui_light_image_4;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_RGB1_Screen
-void ui_RGB1_Screen_screen_init(void);
-extern lv_obj_t * ui_RGB1_Screen;
-extern lv_obj_t * ui_RGB1_Color_Container;
-void ui_event_RGB1_Colorwheel(lv_event_t * e);
-extern lv_obj_t * ui_RGB1_Colorwheel;
-extern lv_obj_t * ui_Color1_Label;
-extern lv_obj_t * ui_RGB1_Brightness_Container;
-void ui_event_RGB1_Brightness_Arc(lv_event_t * e);
-extern lv_obj_t * ui_RGB1_Brightness_Arc;
-extern lv_obj_t * ui_RGB1_Brightness_Label;
-void ui_event_RGB1_Back(lv_event_t * e);
-extern lv_obj_t * ui_RGB1_Back;
-void ui_event_RGB1_Menu(lv_event_t * e);
-extern lv_obj_t * ui_RGB1_Menu;
-void ui_event_RGB1_Next(lv_event_t * e);
-extern lv_obj_t * ui_RGB1_Next;
-extern lv_obj_t * ui_RGB1_Text;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_RGB2_Screen
-void ui_RGB2_Screen_screen_init(void);
-extern lv_obj_t * ui_RGB2_Screen;
-extern lv_obj_t * ui_RGB2_Color_Container;
-void ui_event_RGB2_Colorwheel(lv_event_t * e);
-extern lv_obj_t * ui_RGB2_Colorwheel;
-extern lv_obj_t * ui_Color2_Label;
-extern lv_obj_t * ui_RGB2_Brightness_Container;
-void ui_event_RGB2_Brightness_Arc(lv_event_t * e);
-extern lv_obj_t * ui_RGB2_Brightness_Arc;
-extern lv_obj_t * ui_RGB2_Brightness_Label;
-void ui_event_RGB2_Back(lv_event_t * e);
-extern lv_obj_t * ui_RGB2_Back;
-void ui_event_RGB2_Menu(lv_event_t * e);
-extern lv_obj_t * ui_RGB2_Menu;
-void ui_event_RGB2_Next(lv_event_t * e);
-extern lv_obj_t * ui_RGB2_Next;
-extern lv_obj_t * ui_RGB2_Text;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_Light1_Screen
-void ui_Light1_Screen_screen_init(void);
-extern lv_obj_t * ui_Light1_Screen;
-void ui_event_Light1_Brightness_Arc(lv_event_t * e);
-extern lv_obj_t * ui_Light1_Brightness_Arc;
-extern lv_obj_t * ui_Brightness_Light1;
-extern lv_obj_t * ui_Brightness_Label1;
-void ui_event_Light1_Back(lv_event_t * e);
-extern lv_obj_t * ui_Light1_Back;
-void ui_event_Light1_Menu(lv_event_t * e);
-extern lv_obj_t * ui_Light1_Menu;
-void ui_event_Light1_Next(lv_event_t * e);
-extern lv_obj_t * ui_Light1_Next;
-extern lv_obj_t * ui_Light1_Color1;
-extern lv_obj_t * ui_Light1_Color2;
-extern lv_obj_t * ui_Light1_Color3;
-extern lv_obj_t * ui_Light1_Screen_Label;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_Light2_Screen
-void ui_Light2_Screen_screen_init(void);
-extern lv_obj_t * ui_Light2_Screen;
-void ui_event_Light2_Brightness_Arc(lv_event_t * e);
-extern lv_obj_t * ui_Light2_Brightness_Arc;
-extern lv_obj_t * ui_Brightness_Light2;
-extern lv_obj_t * ui_Brightness_Label2;
-void ui_event_Light2_Back(lv_event_t * e);
-extern lv_obj_t * ui_Light2_Back;
-void ui_event_Light2_Menu(lv_event_t * e);
-extern lv_obj_t * ui_Light2_Menu;
-void ui_event_Light2_Next(lv_event_t * e);
-extern lv_obj_t * ui_Light2_Next;
-extern lv_obj_t * ui_Light2_Color1;
-extern lv_obj_t * ui_Light2_Color2;
-extern lv_obj_t * ui_Light2_Color3;
-extern lv_obj_t * ui_Light2_Screen_Label;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_Light3_Screen
-void ui_Light3_Screen_screen_init(void);
-extern lv_obj_t * ui_Light3_Screen;
-void ui_event_Light3_Brightness_Arc(lv_event_t * e);
-extern lv_obj_t * ui_Light3_Brightness_Arc;
-extern lv_obj_t * ui_Brightness_Light3;
-extern lv_obj_t * ui_Brightness_Label3;
-void ui_event_Light3_Back(lv_event_t * e);
-extern lv_obj_t * ui_Light3_Back;
-void ui_event_Light3_Menu(lv_event_t * e);
-extern lv_obj_t * ui_Light3_Menu;
-void ui_event_Light3_Next(lv_event_t * e);
-extern lv_obj_t * ui_Light3_Next;
-extern lv_obj_t * ui_Light3_Color1;
-extern lv_obj_t * ui_Light3_Color2;
-extern lv_obj_t * ui_Light3_Color3;
-extern lv_obj_t * ui_Light3_Screen_Label;
-// CUSTOM VARIABLES
-
-// SCREEN: ui_Light4_Screen
-void ui_Light4_Screen_screen_init(void);
-extern lv_obj_t * ui_Light4_Screen;
-void ui_event_Light4_Brightness_Arc(lv_event_t * e);
-extern lv_obj_t * ui_Light4_Brightness_Arc;
-extern lv_obj_t * ui_Brightness_Light4;
-extern lv_obj_t * ui_Brightness_Label4;
-void ui_event_Light4_Back(lv_event_t * e);
-extern lv_obj_t * ui_Light4_Back;
-void ui_event_Light4_Menu(lv_event_t * e);
-extern lv_obj_t * ui_Light4_Menu;
-void ui_event_Light4_Next(lv_event_t * e);
-extern lv_obj_t * ui_Light4_Next;
-extern lv_obj_t * ui_Light4_Color1;
-extern lv_obj_t * ui_Light4_Color2;
-extern lv_obj_t * ui_Light4_Color3;
-extern lv_obj_t * ui_Light4_Screen_Label;
-=======
 void FadeOff_Animation(lv_obj_t * TargetObject, int delay);
 void FadeOn_Animation(lv_obj_t * TargetObject, int delay);
 
@@ -243,7 +67,6 @@ extern lv_obj_t * ui_OnOff_Button3;
 extern lv_obj_t * ui_Light_Label3;
 extern lv_obj_t * ui_Light_OFF_Image3;
 extern lv_obj_t * ui_Light_ON_Image3;
->>>>>>> a267db5 (1.0.0)
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -251,19 +74,12 @@ extern lv_obj_t * ui_Light_ON_Image3;
 extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
-<<<<<<< HEAD
-LV_IMG_DECLARE(ui_img_1350069607);    // assets/humidity (2).png
-LV_IMG_DECLARE(ui_img_wind_png);    // assets/wind.png
-LV_IMG_DECLARE(ui_img_719384);    // assets/power-button (2).png
-LV_IMG_DECLARE(ui_img_fan_png);    // assets/fan.png
-=======
-LV_IMG_DECLARE(ui_img_background_png);    // assets/background.png
+LV_IMG_DECLARE(ui_img_1885107934);    // assets/image (1).png
 LV_IMG_DECLARE(ui_img_763671598);    // assets/logo-ptit-1 (1).png
 LV_IMG_DECLARE(ui_img_doam_png);    // assets/doam.png
 LV_IMG_DECLARE(ui_img_nhietdo_png);    // assets/nhietdo.png
 LV_IMG_DECLARE(ui_img_1305810737);    // assets/power-button (1) (1).png
 LV_IMG_DECLARE(ui_img_1385634997);    // assets/light-off.png
->>>>>>> a267db5 (1.0.0)
 LV_IMG_DECLARE(ui_img_light_png);    // assets/light.png
 LV_IMG_DECLARE(ui_img_1836600088);    // assets/brightness (1).png
 
