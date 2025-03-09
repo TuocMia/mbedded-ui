@@ -27,9 +27,6 @@ extern "C" {
 #include "ui_comp_hook.h"
 #include "ui_events.h"
 
-void FadeOff_Animation(lv_obj_t * TargetObject, int delay);
-void FadeOn_Animation(lv_obj_t * TargetObject, int delay);
-
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 extern lv_obj_t * ui_Screen1;
@@ -74,14 +71,14 @@ extern lv_obj_t * ui_Light_ON_Image3;
 extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
-LV_IMG_DECLARE(ui_img_1885107934);    // assets/image (1).png
-LV_IMG_DECLARE(ui_img_763671598);    // assets/logo-ptit-1 (1).png
+LV_IMG_DECLARE(ui_img_background_png);    // assets/background.png
+LV_IMG_DECLARE(ui_img_logoptit_png);    // assets/logoptit.png
 LV_IMG_DECLARE(ui_img_doam_png);    // assets/doam.png
 LV_IMG_DECLARE(ui_img_nhietdo_png);    // assets/nhietdo.png
-LV_IMG_DECLARE(ui_img_1305810737);    // assets/power-button (1) (1).png
-LV_IMG_DECLARE(ui_img_1385634997);    // assets/light-off.png
-LV_IMG_DECLARE(ui_img_light_png);    // assets/light.png
-LV_IMG_DECLARE(ui_img_1836600088);    // assets/brightness (1).png
+LV_IMG_DECLARE(ui_img_powerbutton_png);    // assets/powerbutton.png
+LV_IMG_DECLARE(ui_img_lightoff_png);    // assets/lightoff.png
+LV_IMG_DECLARE(ui_img_lighton_png);    // assets/lighton.png
+LV_IMG_DECLARE(ui_img_brightness_png);    // assets/brightness.png
 
 // FONTS
 LV_FONT_DECLARE(ui_font_dmsans32);

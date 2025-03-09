@@ -1,17 +1,43 @@
-#include "mymqtt.h"
+#include "header.h"
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
+bool power1 = false;
+bool power2 = false;
+bool power3 = false;
+
 // Define a callback function to handle incoming messages
 void callback(char* topic, byte* payload, unsigned int length) {
-Serial.print("Message arrived in topic: ");
-Serial.println(topic);
-Serial.print("Message: ");
-for (int i = 0; i < length; i++) {
-Serial.print((char)payload[i]);
-}
-Serial.println();
+    Serial.print("Message arrived in topic: ");
+    Serial.println(topic);
+
+    // Chuyển payload thành chuỗi JSON
+    char message[length + 1]; // Tạo buffer có độ dài +1 để chứa ký tự null
+    memcpy(message, payload, length);
+    message[length] = '\0'; // Kết thúc chuỗi đúng cách
+
+    Serial.print("Message: ");
+    Serial.println(message); // In ra nội dung JSON
+
+    // Phân tích JSON bằng ArduinoJson
+    JsonDocument doc;
+    DeserializationError error = deserializeJson(doc, message);
+
+    if (error) {
+        Serial.print("JSON parsing failed: ");
+        Serial.println(error.c_str());
+        return;
+    }
+
+    // Trích xuất dữ liệu từ JSON
+    const char* device = doc["Device"];
+    const char* power = doc["Power"];
+
+    Serial.print("Device: ");
+    Serial.println(device);
+    Serial.print("Power: ");
+    Serial.println(power);
 }
 
 // Connect to WiFi
@@ -57,11 +83,42 @@ void mqtt_loop() {
     client.loop();
 }
 
-void sendJson(String tag, float range) {
+void publish_light_state(String light, String state) {
     JsonDocument msg;
-    msg["anchor"] = tag;
-    msg["range"] = range;
+    msg["Device"] = light;
+    msg["Power"] = state;
     char MsgBuffer[100];
     serializeJson(msg, MsgBuffer);
     client.publish(MQTT_Topic, MsgBuffer);
+}
+
+void Light1OnOff(lv_event_t * e){
+    if(power1 == false){
+        publish_light_state("Light 1", "ON");
+        power1 = true;
+    }
+    else{
+        publish_light_state("Light 1", "OFF");
+        power1 = false;
+    }
+}
+void Light2OnOff(lv_event_t * e){
+    if(power2 == false){
+        publish_light_state("Light 2", "ON");
+        power2 = true;
+    }
+    else{
+        publish_light_state("Light 2", "OFF");
+        power2 = false;
+    }
+}
+void Light3OnOff(lv_event_t * e){
+    if(power3 == false){
+        publish_light_state("Light 3", "ON");
+        power3 = true;
+    }
+    else{
+        publish_light_state("Light 3", "OFF");
+        power3 = false;
+    }
 }

@@ -6,16 +6,16 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
-#define WIFI_SSID            "Rang Dong Lab_2G"
-#define WIFI_Password        "ktdt123456"
+#define WIFI_SSID            "TP-LINK_B9D2"
+#define WIFI_Password        "21377570"
 
 // MQTT Broker (replace with your broker if using a local one)
 #define MQTT_Server     "45.118.147.52"
 #define MQTT_Port       12004
-#define MQTT_Topic      "dw1000/anchor"
+#define MQTT_Topic      "device/light"
 
 void mqtt_init();
 void mqtt_loop();
-void sendJson(String state, String name);
+void sendJson(String light, String state);
 
 #endif
