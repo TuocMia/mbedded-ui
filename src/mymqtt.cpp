@@ -12,25 +12,25 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print("Message arrived in topic: ");
     Serial.println(topic);
 
-    // Chuyển payload thành chuỗi JSON
-    char message[length + 1]; // Tạo buffer có độ dài +1 để chứa ký tự null
+    char message[length + 1]; 
     memcpy(message, payload, length);
-    message[length] = '\0'; // Kết thúc chuỗi đúng cách
+    message[length] = '\0'; 
 
     Serial.print("Message: ");
-    Serial.println(message); // In ra nội dung JSON
+    Serial.println(message); 
 
-    // Phân tích JSON bằng ArduinoJson
+    // Parse JSON
     JsonDocument doc;
     DeserializationError error = deserializeJson(doc, message);
 
+    // Test if parsing succeeds
     if (error) {
         Serial.print("JSON parsing failed: ");
         Serial.println(error.c_str());
         return;
     }
 
-    // Trích xuất dữ liệu từ JSON
+    //Fetch values
     const char* device = doc["Device"];
     const char* power = doc["Power"];
 
@@ -38,6 +38,44 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.println(device);
     Serial.print("Power: ");
     Serial.println(power);
+    
+    // Handler msg from mqtt
+    //Light1
+    if (strcmp(device, "Light 1") == 0 && strcmp(power, "ON") == 0 && power1 == false) {
+        power1 = true;
+        lv_obj_add_state(ui_OnOff_Button1, LV_STATE_CHECKED);
+        _ui_flag_modify(ui_Light_ON_Image1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+    }
+    if (strcmp(device, "Light 1") == 0 && strcmp(power, "OFF") == 0 && power1 == true) {
+        power1 = false;
+        lv_obj_clear_state(ui_OnOff_Button1, LV_STATE_CHECKED);
+        _ui_flag_modify(ui_Light_ON_Image1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+    }
+
+    //Light2
+    if (strcmp(device, "Light 2") == 0 && strcmp(power, "ON") == 0 && power2 == false) {
+        power2 = true;
+        Serial.println("Light 2 ON");
+        lv_obj_add_state(ui_OnOff_Button2, LV_STATE_CHECKED);
+        _ui_flag_modify(ui_Light_ON_Image2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+    }
+    if (strcmp(device, "Light 2") == 0 && strcmp(power, "OFF") == 0 && power2 == true) {
+        power2 = false;
+        lv_obj_clear_state(ui_OnOff_Button2, LV_STATE_CHECKED);
+        _ui_flag_modify(ui_Light_ON_Image2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+    }
+
+    //Light3
+    if (strcmp(device, "Light 3") == 0 && strcmp(power, "ON") == 0 && power3 == false) {
+        power3 = true;
+        lv_obj_add_state(ui_OnOff_Button3, LV_STATE_CHECKED);
+        _ui_flag_modify(ui_Light_ON_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+    }
+    if (strcmp(device, "Light 3") == 0 && strcmp(power, "OFF") == 0 && power3 == true) {
+        power3 = false;
+        lv_obj_clear_state(ui_OnOff_Button3, LV_STATE_CHECKED);
+        _ui_flag_modify(ui_Light_ON_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+    }
 }
 
 // Connect to WiFi
