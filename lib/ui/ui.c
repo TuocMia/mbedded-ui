@@ -25,27 +25,21 @@ lv_obj_t * ui_Symbol;
 lv_obj_t * ui_Temp_Label;
 lv_obj_t * ui_Temp_Image;
 lv_obj_t * ui_Bar1;
-lv_obj_t * ui_Light_Panel1;
+lv_obj_t * ui_Switch_Panel1;
 void ui_event_OnOff_Button1(lv_event_t * e);
 lv_obj_t * ui_OnOff_Button1;
-lv_obj_t * ui_Light_Label1;
-lv_obj_t * ui_Light_OFF_Image1;
-lv_obj_t * ui_Light_ON_Image1;
+lv_obj_t * ui_Switch_Label1;
 lv_obj_t * ui_Light_Sensor;
 lv_obj_t * ui_Lux_Label;
 lv_obj_t * ui_Lux_Image;
-lv_obj_t * ui_Light_Panel2;
+lv_obj_t * ui_Switch_Panel2;
 void ui_event_OnOff_Button2(lv_event_t * e);
 lv_obj_t * ui_OnOff_Button2;
-lv_obj_t * ui_Light_Label2;
-lv_obj_t * ui_Light_OFF_Image2;
-lv_obj_t * ui_Light_ON_Image2;
-lv_obj_t * ui_Light_Panel3;
+lv_obj_t * ui_Switch_Label2;
+lv_obj_t * ui_Switch_Panel3;
 void ui_event_OnOff_Button3(lv_event_t * e);
 lv_obj_t * ui_OnOff_Button3;
-lv_obj_t * ui_Light_Label3;
-lv_obj_t * ui_Light_OFF_Image3;
-lv_obj_t * ui_Light_ON_Image3;
+lv_obj_t * ui_Switch_Label3;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -67,14 +61,7 @@ lv_obj_t * ui____initial_actions0;
 void ui_event_OnOff_Button1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
 
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Light_ON_Image1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    }
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Light_ON_Image1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
     if(event_code == LV_EVENT_CLICKED) {
         Light1OnOff(e);
     }
@@ -83,14 +70,7 @@ void ui_event_OnOff_Button1(lv_event_t * e)
 void ui_event_OnOff_Button2(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
 
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Light_ON_Image2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    }
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Light_ON_Image2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
     if(event_code == LV_EVENT_CLICKED) {
         Light2OnOff(e);
     }
@@ -99,14 +79,7 @@ void ui_event_OnOff_Button2(lv_event_t * e)
 void ui_event_OnOff_Button3(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
 
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Light_ON_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    }
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Light_ON_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
     if(event_code == LV_EVENT_CLICKED) {
         Light3OnOff(e);
     }

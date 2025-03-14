@@ -43,27 +43,21 @@ extern lv_obj_t * ui_Symbol;
 extern lv_obj_t * ui_Temp_Label;
 extern lv_obj_t * ui_Temp_Image;
 extern lv_obj_t * ui_Bar1;
-extern lv_obj_t * ui_Light_Panel1;
+extern lv_obj_t * ui_Switch_Panel1;
 void ui_event_OnOff_Button1(lv_event_t * e);
 extern lv_obj_t * ui_OnOff_Button1;
-extern lv_obj_t * ui_Light_Label1;
-extern lv_obj_t * ui_Light_OFF_Image1;
-extern lv_obj_t * ui_Light_ON_Image1;
+extern lv_obj_t * ui_Switch_Label1;
 extern lv_obj_t * ui_Light_Sensor;
 extern lv_obj_t * ui_Lux_Label;
 extern lv_obj_t * ui_Lux_Image;
-extern lv_obj_t * ui_Light_Panel2;
+extern lv_obj_t * ui_Switch_Panel2;
 void ui_event_OnOff_Button2(lv_event_t * e);
 extern lv_obj_t * ui_OnOff_Button2;
-extern lv_obj_t * ui_Light_Label2;
-extern lv_obj_t * ui_Light_OFF_Image2;
-extern lv_obj_t * ui_Light_ON_Image2;
-extern lv_obj_t * ui_Light_Panel3;
+extern lv_obj_t * ui_Switch_Label2;
+extern lv_obj_t * ui_Switch_Panel3;
 void ui_event_OnOff_Button3(lv_event_t * e);
 extern lv_obj_t * ui_OnOff_Button3;
-extern lv_obj_t * ui_Light_Label3;
-extern lv_obj_t * ui_Light_OFF_Image3;
-extern lv_obj_t * ui_Light_ON_Image3;
+extern lv_obj_t * ui_Switch_Label3;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -75,9 +69,7 @@ LV_IMG_DECLARE(ui_img_background_png);    // assets/background.png
 LV_IMG_DECLARE(ui_img_logoptit_png);    // assets/logoptit.png
 LV_IMG_DECLARE(ui_img_doam_png);    // assets/doam.png
 LV_IMG_DECLARE(ui_img_nhietdo_png);    // assets/nhietdo.png
-LV_IMG_DECLARE(ui_img_powerbutton_png);    // assets/powerbutton.png
-LV_IMG_DECLARE(ui_img_lightoff_png);    // assets/lightoff.png
-LV_IMG_DECLARE(ui_img_lighton_png);    // assets/lighton.png
+LV_IMG_DECLARE(ui_img_1324367613);    // assets/power-button (1).png
 LV_IMG_DECLARE(ui_img_brightness_png);    // assets/brightness.png
 
 // FONTS

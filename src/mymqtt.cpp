@@ -41,40 +41,39 @@ void callback(char* topic, byte* payload, unsigned int length) {
     
     // Handler msg from mqtt
     //Light1
-    if (strcmp(device, "Light 1") == 0 && strcmp(power, "ON") == 0 && power1 == false) {
-        power1 = true;
+    if (strcmp(device, "Light 1") == 0 && strcmp(power, "ON") == 0) {
+        delay(100);
         lv_obj_add_state(ui_OnOff_Button1, LV_STATE_CHECKED);
-        _ui_flag_modify(ui_Light_ON_Image1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        power1 = true;
     }
-    if (strcmp(device, "Light 1") == 0 && strcmp(power, "OFF") == 0 && power1 == true) {
-        power1 = false;
+    if (strcmp(device, "Light 1") == 0 && strcmp(power, "OFF") == 0) {
+        delay(100);
         lv_obj_clear_state(ui_OnOff_Button1, LV_STATE_CHECKED);
-        _ui_flag_modify(ui_Light_ON_Image1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        power1 = false;
     }
 
     //Light2
-    if (strcmp(device, "Light 2") == 0 && strcmp(power, "ON") == 0 && power2 == false) {
-        power2 = true;
-        Serial.println("Light 2 ON");
+    if (strcmp(device, "Light 2") == 0 && strcmp(power, "ON") == 0) {
+        delay(100);
         lv_obj_add_state(ui_OnOff_Button2, LV_STATE_CHECKED);
-        _ui_flag_modify(ui_Light_ON_Image2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        power2 = true;
     }
-    if (strcmp(device, "Light 2") == 0 && strcmp(power, "OFF") == 0 && power2 == true) {
-        power2 = false;
+    if (strcmp(device, "Light 2") == 0 && strcmp(power, "OFF") == 0) {
+        delay(100);
         lv_obj_clear_state(ui_OnOff_Button2, LV_STATE_CHECKED);
-        _ui_flag_modify(ui_Light_ON_Image2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        power2 = false;
     }
 
     //Light3
-    if (strcmp(device, "Light 3") == 0 && strcmp(power, "ON") == 0 && power3 == false) {
-        power3 = true;
+    if (strcmp(device, "Light 3") == 0 && strcmp(power, "ON") == 0) {
+        delay(100);
         lv_obj_add_state(ui_OnOff_Button3, LV_STATE_CHECKED);
-        _ui_flag_modify(ui_Light_ON_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        power3 = true;
     }
-    if (strcmp(device, "Light 3") == 0 && strcmp(power, "OFF") == 0 && power3 == true) {
-        power3 = false;
+    if (strcmp(device, "Light 3") == 0 && strcmp(power, "OFF") == 0) {
+        delay(100);
         lv_obj_clear_state(ui_OnOff_Button3, LV_STATE_CHECKED);
-        _ui_flag_modify(ui_Light_ON_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        power3 = false;
     }
 }
 
@@ -97,7 +96,8 @@ String clientId = "ESP32Client";
     clientId += String(random(0xffff), HEX);
 if (client.connect(clientId.c_str())) {
     Serial.println("connected");
-    client.subscribe(MQTT_Topic); // Subscribe to topic
+    client.subscribe(MQTT_Light_Topic);
+    client.subscribe(MQTT_Time_Topic); // Subscribe to topic
 }
 else {
     Serial.print("failed, rc=");
@@ -127,7 +127,15 @@ void publish_light_state(String light, String state) {
     msg["Power"] = state;
     char MsgBuffer[100];
     serializeJson(msg, MsgBuffer);
-    client.publish(MQTT_Topic, MsgBuffer);
+    client.publish(MQTT_Light_Topic, MsgBuffer);
+}
+
+void publish_time_request() {
+    JsonDocument msg;
+    msg["Time"] = "Request";
+    char MsgBuffer[100];
+    serializeJson(msg, MsgBuffer);
+    client.publish(MQTT_Time_Topic, MsgBuffer);
 }
 
 void Light1OnOff(lv_event_t * e){
