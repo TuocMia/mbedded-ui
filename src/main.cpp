@@ -1,7 +1,7 @@
 #include "header.h"
 #include <esp_task_wdt.h>
 
-#define WDT_TIMEOUT 10000
+#define WDT_TIMEOUT 3000
 
 #define CONFIG_FREERTOS_NUMBER_OF_CORES 1 
 
@@ -19,8 +19,8 @@ void setup()
 {   
     Serial.begin(115200);
     display_init();
-    delay(1000);
     mqtt_init();
+    gpio_init();
     Serial.println("Configuring WDT...");
     esp_task_wdt_deinit(); //wdt is enabled by default, so we need to deinit it first
     esp_task_wdt_init(&twdt_config); //enable panic so ESP32 restarts
@@ -29,12 +29,16 @@ void setup()
 }
 
 void loop()
-{   
-
+{ 
+//   Reset the WDT every 1 second
     if (millis() - last >= 1000) {
-    Serial.println("Resetting WDT...");
-    esp_task_wdt_reset();
-    last = millis();
-}
+        Serial.println("Resetting WDT...");
+        esp_task_wdt_reset();
+        last = millis();
+    }
     mqtt_loop();
+    Switch1State();
+    Switch2State();
+    Switch3State();
+    delay(50);
 }

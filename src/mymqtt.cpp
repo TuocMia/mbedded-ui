@@ -1,7 +1,7 @@
 #include "header.h"
 
-WiFiClient espClient;
-PubSubClient client(espClient);
+WiFiClient ValiSmarthome;
+PubSubClient client(ValiSmarthome);
 
 bool power1 = false;
 bool power2 = false;
@@ -11,70 +11,12 @@ bool power3 = false;
 void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print("Message arrived in topic: ");
     Serial.println(topic);
-
     char message[length + 1]; 
     memcpy(message, payload, length);
     message[length] = '\0'; 
-
     Serial.print("Message: ");
     Serial.println(message); 
-
-    // Parse JSON
-    JsonDocument doc;
-    DeserializationError error = deserializeJson(doc, message);
-
-    // Test if parsing succeeds
-    if (error) {
-        Serial.print("JSON parsing failed: ");
-        Serial.println(error.c_str());
-        return;
-    }
-
-    //Fetch values
-    const char* device = doc["Device"];
-    const char* power = doc["Power"];
-
-    Serial.print("Device: ");
-    Serial.println(device);
-    Serial.print("Power: ");
-    Serial.println(power);
-    
-    // Handler msg from mqtt
-    //Light1
-    if (strcmp(device, "Light 1") == 0 && strcmp(power, "ON") == 0) {
-        delay(100);
-        lv_obj_add_state(ui_OnOff_Button1, LV_STATE_CHECKED);
-        power1 = true;
-    }
-    if (strcmp(device, "Light 1") == 0 && strcmp(power, "OFF") == 0) {
-        delay(100);
-        lv_obj_clear_state(ui_OnOff_Button1, LV_STATE_CHECKED);
-        power1 = false;
-    }
-
-    //Light2
-    if (strcmp(device, "Light 2") == 0 && strcmp(power, "ON") == 0) {
-        delay(100);
-        lv_obj_add_state(ui_OnOff_Button2, LV_STATE_CHECKED);
-        power2 = true;
-    }
-    if (strcmp(device, "Light 2") == 0 && strcmp(power, "OFF") == 0) {
-        delay(100);
-        lv_obj_clear_state(ui_OnOff_Button2, LV_STATE_CHECKED);
-        power2 = false;
-    }
-
-    //Light3
-    if (strcmp(device, "Light 3") == 0 && strcmp(power, "ON") == 0) {
-        delay(100);
-        lv_obj_add_state(ui_OnOff_Button3, LV_STATE_CHECKED);
-        power3 = true;
-    }
-    if (strcmp(device, "Light 3") == 0 && strcmp(power, "OFF") == 0) {
-        delay(100);
-        lv_obj_clear_state(ui_OnOff_Button3, LV_STATE_CHECKED);
-        power3 = false;
-    }
+ 
 }
 
 // Connect to WiFi
@@ -92,7 +34,7 @@ Serial.println("\nConnected to WiFi.");
 void reconnectMQTT() {
 while (!client.connected()) {
     Serial.print("Connecting to MQTT...");
-String clientId = "ESP32Client";
+String clientId = "ValiSmarthome";
     clientId += String(random(0xffff), HEX);
 if (client.connect(clientId.c_str())) {
     Serial.println("connected");
@@ -139,32 +81,49 @@ void publish_time_request() {
 }
 
 void Light1OnOff(lv_event_t * e){
-    if(power1 == false){
-        publish_light_state("Light 1", "ON");
-        power1 = true;
-    }
-    else{
-        publish_light_state("Light 1", "OFF");
-        power1 = false;
-    }
+    digitalWrite(OutputPin1, LOW);
+    delay(200);
+    digitalWrite(OutputPin1, HIGH);
 }
+
 void Light2OnOff(lv_event_t * e){
-    if(power2 == false){
-        publish_light_state("Light 2", "ON");
-        power2 = true;
+    digitalWrite(OutputPin2, LOW);
+    delay(200);
+    digitalWrite(OutputPin2, HIGH);
+}
+
+void Light3OnOff(lv_event_t * e){
+    digitalWrite(OutputPin3, LOW);
+    delay(200);
+    digitalWrite(OutputPin3, HIGH);
+}
+
+void Switch1State(){
+    int state = digitalRead(InputPin1);
+    if(state == LOW){
+        lv_obj_add_state(ui_OnOff_Button1, LV_STATE_CHECKED);
     }
     else{
-        publish_light_state("Light 2", "OFF");
-        power2 = false;
+        lv_obj_clear_state(ui_OnOff_Button1, LV_STATE_CHECKED);
     }
 }
-void Light3OnOff(lv_event_t * e){
-    if(power3 == false){
-        publish_light_state("Light 3", "ON");
-        power3 = true;
+
+void Switch2State(){
+    int state = digitalRead(InputPin2);
+    if(state == LOW){
+        lv_obj_add_state(ui_OnOff_Button2, LV_STATE_CHECKED);
     }
     else{
-        publish_light_state("Light 3", "OFF");
-        power3 = false;
+        lv_obj_clear_state(ui_OnOff_Button2, LV_STATE_CHECKED);
+    }
+}
+
+void Switch3State(){
+    int state = digitalRead(InputPin3);
+    if(state == HIGH){
+        lv_obj_add_state(ui_OnOff_Button3, LV_STATE_CHECKED);
+    }
+    else{
+        lv_obj_clear_state(ui_OnOff_Button3, LV_STATE_CHECKED);
     }
 }

@@ -182,7 +182,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_OnOff_Button1, 0);
     lv_obj_set_y(ui_OnOff_Button1, -10);
     lv_obj_set_align(ui_OnOff_Button1, LV_ALIGN_TOP_MID);
-    lv_obj_add_flag(ui_OnOff_Button1, LV_OBJ_FLAG_CHECKABLE | LV_OBJ_FLAG_IGNORE_LAYOUT);     /// Flags
+    lv_obj_add_flag(ui_OnOff_Button1, LV_OBJ_FLAG_IGNORE_LAYOUT);     /// Flags
     lv_obj_set_style_radius(ui_OnOff_Button1, 45, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui_OnOff_Button1, lv_color_hex(0x919191), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_OnOff_Button1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -259,7 +259,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_OnOff_Button2, 0);
     lv_obj_set_y(ui_OnOff_Button2, -10);
     lv_obj_set_align(ui_OnOff_Button2, LV_ALIGN_TOP_MID);
-    lv_obj_add_flag(ui_OnOff_Button2, LV_OBJ_FLAG_CHECKABLE | LV_OBJ_FLAG_IGNORE_LAYOUT);     /// Flags
+    lv_obj_add_flag(ui_OnOff_Button2, LV_OBJ_FLAG_IGNORE_LAYOUT);     /// Flags
     lv_obj_set_style_radius(ui_OnOff_Button2, 45, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui_OnOff_Button2, lv_color_hex(0x919191), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_OnOff_Button2, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
