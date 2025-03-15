@@ -13,7 +13,7 @@
 #define MQTT_Server     "45.118.147.52"
 #define MQTT_Port       12004
 #define MQTT_Light_Topic        "smarthome_vali/device/light"
-#define MQTT_Time_Topic         "smarthome_validevice/time"
+#define MQTT_Time_Topic         "smarthome_vali/device/time"
 #define MQTT_Temp_Topic         "smarthome_vali/device/temp"
 #define MQTT_Hum_Topic          "smarthome_vali/device/hum"
 
