@@ -7,7 +7,6 @@
 #include "ui.h"
 #include <WiFi.h>
 #include <PubSubClient.h>
-#include <ArduinoJson.h>
 #include "mymqtt.h"
 #include "display.h"
 #include "lvgl_port_v8.h"

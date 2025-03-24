@@ -3,20 +3,38 @@
 WiFiClient ValiSmarthome;
 PubSubClient client(ValiSmarthome);
 
-bool power1 = false;
-bool power2 = false;
-bool power3 = false;
 
 // Define a callback function to handle incoming messages
-void callback(char* topic, byte* payload, unsigned int length) {
-    Serial.print("Message arrived in topic: ");
-    Serial.println(topic);
-    char message[length + 1]; 
-    memcpy(message, payload, length);
-    message[length] = '\0'; 
-    Serial.print("Message: ");
-    Serial.println(message); 
- 
+void callback(char* topic, byte* message, unsigned int length) {
+    if (strcmp(topic, MQTT_Light_Topic) == 0) {
+        String messageTemp = String((char*)message).substring(0, length);
+        Serial.println(messageTemp);
+        lv_label_set_text(ui_Lux_Label, messageTemp.c_str());
+    }
+
+    if (strcmp(topic, MQTT_Temp_Topic) == 0) {
+        String messageTemp = String((char*)message).substring(0, length);
+        Serial.println(messageTemp);
+        lv_label_set_text(ui_Temp_Label, messageTemp.c_str());
+    }
+
+    if (strcmp(topic, MQTT_Hum_Topic) == 0) {
+        String messageTemp = String((char*)message).substring(0, length);
+        Serial.println(messageTemp);
+        lv_label_set_text(ui_Humid_Label, messageTemp.c_str());
+    }
+
+    if (strcmp(topic, MQTT_Hour_Topic) == 0) {
+        String messageTemp = String((char*)message).substring(0, length);
+        Serial.println(messageTemp);
+        lv_label_set_text(ui_Hour, messageTemp.c_str());
+    }
+
+    if (strcmp(topic, MQTT_Min_Topic) == 0) {
+        String messageTemp = String((char*)message).substring(0, length);
+        Serial.println(messageTemp);
+        lv_label_set_text(ui_Min, messageTemp.c_str());
+    }
 }
 
 // Connect to WiFi
@@ -34,12 +52,15 @@ Serial.println("\nConnected to WiFi.");
 void reconnectMQTT() {
 while (!client.connected()) {
     Serial.print("Connecting to MQTT...");
-String clientId = "ValiSmarthome";
-    clientId += String(random(0xffff), HEX);
-if (client.connect(clientId.c_str())) {
+if (client.connect(MQTT_ClientID, MQTT_User, MQTT_Password)) {
     Serial.println("connected");
+
+    // Subscribe to topic
     client.subscribe(MQTT_Light_Topic);
-    client.subscribe(MQTT_Time_Topic); // Subscribe to topic
+    client.subscribe(MQTT_Hour_Topic); 
+    client.subscribe(MQTT_Temp_Topic);
+    client.subscribe(MQTT_Hum_Topic);
+    client.subscribe(MQTT_Min_Topic);
 }
 else {
     Serial.print("failed, rc=");
@@ -47,6 +68,7 @@ else {
     delay(2000);
         }
     }
+
 }
 
 //ket noi voi mqtt
@@ -63,22 +85,6 @@ void mqtt_loop() {
     client.loop();
 }
 
-void publish_light_state(String light, String state) {
-    JsonDocument msg;
-    msg["Device"] = light;
-    msg["Power"] = state;
-    char MsgBuffer[100];
-    serializeJson(msg, MsgBuffer);
-    client.publish(MQTT_Light_Topic, MsgBuffer);
-}
-
-void publish_time_request() {
-    JsonDocument msg;
-    msg["Time"] = "Request";
-    char MsgBuffer[100];
-    serializeJson(msg, MsgBuffer);
-    client.publish(MQTT_Time_Topic, MsgBuffer);
-}
 
 void Light1OnOff(lv_event_t * e){
     digitalWrite(OutputPin1, LOW);
