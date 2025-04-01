@@ -7,7 +7,8 @@
 #include "ui_helpers.h"
 
 ///////////////////// VARIABLES ////////////////////
-
+unsigned long lastPressTime = 0;
+const unsigned long debounceDelay = 500;
 
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
@@ -67,8 +68,10 @@ lv_obj_t * ui____initial_actions0;
 void ui_event_OnOff_Button1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
+    unsigned long currentTime = millis();  
 
-    if(event_code == LV_EVENT_CLICKED) {
+    if (event_code == LV_EVENT_CLICKED && (currentTime - lastPressTime > debounceDelay)) {
+        lastPressTime = currentTime; 
         Light1OnOff(e);
     }
 }
@@ -76,8 +79,10 @@ void ui_event_OnOff_Button1(lv_event_t * e)
 void ui_event_OnOff_Button2(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
+    unsigned long currentTime = millis();  
 
-    if(event_code == LV_EVENT_CLICKED) {
+    if (event_code == LV_EVENT_CLICKED && (currentTime - lastPressTime > debounceDelay)) {
+        lastPressTime = currentTime; 
         Light2OnOff(e);
     }
 }
@@ -85,8 +90,10 @@ void ui_event_OnOff_Button2(lv_event_t * e)
 void ui_event_OnOff_Button3(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
+    unsigned long currentTime = millis();  
 
-    if(event_code == LV_EVENT_CLICKED) {
+    if (event_code == LV_EVENT_CLICKED && (currentTime - lastPressTime > debounceDelay)) {
+        lastPressTime = currentTime; 
         Light3OnOff(e);
     }
 }
